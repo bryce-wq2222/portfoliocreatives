@@ -200,7 +200,7 @@
   /* ---------- testimonials ---------- */
   .t-head{text-align:center;margin-bottom:38px;}
   .t-head h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;}
-  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,380px));justify-content:center;gap:20px;}
   .tcard{background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;}
   .tcard:hover{border-color:var(--border-strong);transform:translateY(-2px);}
   .tcard .stars{color:var(--accent);letter-spacing:3px;font-size:1.05rem;}
@@ -276,9 +276,9 @@
     <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="orb orb-4"></div>
   </div>
   <div class="container hero-inner">
-    <span class="hero-badge reveal">UGC · Statics · Video — priced to performance</span>
+    <span class="hero-badge reveal">UGC · Motion Graphics · Statics — priced to performance</span>
     <h1 class="reveal">Creator armies that <em>print performance.</em></h1>
-    <p class="hero-sub reveal">InVig spins up on-demand creator networks that pump out scroll-stopping UGC, statics, and video — engineered to convert, tested relentlessly, and billed to <strong>your</strong> results. This is the work.</p>
+    <p class="hero-sub reveal">InVig spins up on-demand creator networks that pump out scroll-stopping UGC, motion graphics, and statics — engineered to convert, tested relentlessly, and billed to <strong>your</strong> results. This is the work.</p>
     <div class="hero-ctas reveal">
       <a class="btn btn-primary" href="#work">See the work <span class="arrow">↓</span></a>
       <a class="btn btn-ghost" href="#hire">Build my creative engine</a>
@@ -357,8 +357,8 @@
 <section class="section testimonials">
   <div class="container">
     <div class="t-head">
-      <div class="section-label">Real brands. Real results.</div>
-      <h2>What it's like to hand your creative to InVig.</h2>
+      <div class="section-label">Testimonials</div>
+      <h2>Real brands. Real results.</h2>
     </div>
     <div class="tgrid" id="tgrid"></div>
   </div>
@@ -412,37 +412,30 @@
    NOTE: numbers + clips below are SAMPLE — replace with your real winners.
    ============================================================================ */
   const BRANDS = {
-    volvik:    {name:'Volvik Golf',  grad:'linear-gradient(135deg,#1DAEFF,#00DEFF)', sw:'#1DAEFF'},
-    hyve:      {name:'HYVE Honey',   grad:'linear-gradient(135deg,#FFC23A,#FF7A2F)', sw:'#FFC23A'},
-    plus:      {name:'Plus Markets', grad:'linear-gradient(135deg,#0EA5E9,#6366F1)', sw:'#6366F1'},
-    aliner:    {name:'Aliner',       grad:'linear-gradient(135deg,#BFC5CE,#1DAEFF)', sw:'#BFC5CE'},
-    belter:    {name:'Belter',       grad:'linear-gradient(135deg,#00DEFF,#1DAEFF)', sw:'#00DEFF'},
-    highlights:{name:'Highlights',   grad:'linear-gradient(135deg,#3EBFFF,#0EA5E9)', sw:'#3EBFFF'},
+    volvik: {name:'Volvik',           grad:'linear-gradient(135deg,#1DAEFF,#00DEFF)', sw:'#1DAEFF'},
+    skye:   {name:'Skye Performance', grad:'linear-gradient(135deg,#2BD2C0,#1DAEFF)', sw:'#2BD2C0'},
+    hyve:   {name:'HYVE Honey',       grad:'linear-gradient(135deg,#FFC23A,#FF7A2F)', sw:'#FFC23A'},
   };
 
-  // public sample mp4s just to prove inline playback — swap for real ad links
-  const V1='https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
-  const V2='https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4';
-  const V3='https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4';
-  const V4='https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
-
+  // Real creatives, embedded straight from Bryce's Google Drive (files shared "anyone with link").
+  //   videos  -> kind:'drive'  (card = Drive thumbnail, lightbox = Drive player; plays .mov + .mp4 in all browsers)
+  //   statics -> kind:'static' (Drive thumbnail image). Everything shown 9:16 per spec.
+  // To add a creative: paste its Drive file id (the long string in /file/d/<ID>/view).
+  const thumb = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
   const CREATIVES = [
-    {brand:'volvik', format:'ugc',   ratio:'9/16', media:{kind:'video',src:V1}, metrics:{roas:'3.8x',ctr:'2.4% CTR',hook:'31% hook',spend:'$42k scaled'}},
-    {brand:'plus',   format:'ugc',   ratio:'9/16', media:{kind:'video',src:V2}, metrics:{roas:'4.52x',ctr:'3.1% CTR',hook:'38% hook',spend:'$25k spend'}},
-    {brand:'hyve',   format:'static',ratio:'1/1',  media:{kind:'mock',head:'Raw. Unfiltered. Honey.',sub:'20% off your first jar',badge:'NEW DROP',emoji:'🍯'}, metrics:{roas:'5.2x',ctr:'2.9% CTR',spend:'$28k scaled'}},
-    {brand:'belter', format:'motion', ratio:'16/9', media:{kind:'video',src:V3}, metrics:{roas:'3.1x',ctr:'1.9% CTR',spend:'$55k scaled'}},
-    {brand:'aliner', format:'ugc',   ratio:'9/16', media:{kind:'video',src:V4}, metrics:{roas:'4.1x',ctr:'2.7% CTR',hook:'34% hook',spend:'$37k scaled'}},
-    {brand:'volvik', format:'static',ratio:'4/5',  media:{kind:'mock',head:'Longer. Straighter. Period.',sub:'The #1 distance ball',badge:'BESTSELLER',emoji:'⛳'}, metrics:{roas:'2.4x',ctr:'2.2% CTR',spend:'5× revenue'}},
-    {brand:'highlights',format:'static',ratio:'1/1',media:{kind:'mock',head:'Your highlight reel, instantly.',sub:'Try it free',badge:'-15%',emoji:'🎞️'}, metrics:{roas:'3.9x',ctr:'2.6% CTR',spend:'$24k scaled'}},
-    {brand:'hyve',   format:'ugc',   ratio:'9/16', media:{kind:'video',src:V2}, metrics:{roas:'4.8x',ctr:'3.4% CTR',hook:'41% hook',spend:'$47k scaled'}},
-    {brand:'plus',   format:'static',ratio:'4/5',  media:{kind:'mock',head:'Trade with a real edge.',sub:'347 funded this month',badge:'VIRAL',emoji:'📈'}, metrics:{roas:'4.52x',ctr:'2.5% CTR',spend:'$72 CPA'}},
-    {brand:'belter', format:'motion', ratio:'9/16', media:{kind:'video',src:V1}, metrics:{roas:'3.6x',ctr:'2.8% CTR',hook:'29% hook',spend:'$40k scaled'}},
+    {brand:'volvik', format:'ugc',    ratio:'9/16', media:{kind:'drive',  id:'1vrMg1KgNQa49_Mm8rWbskTLW48yl1CMd'}},   // volvik_TroyJ
+    {brand:'skye',   format:'static', ratio:'9/16', media:{kind:'static', src:thumb('1_eWnxddWgAkoVD7qdZ0tnggiuRKz9Qr-')}}, // SKY comparison P1
+    {brand:'skye',   format:'ugc',    ratio:'9/16', media:{kind:'drive',  id:'1hjHhmk7vESbDgOI_uVyXAZXkyiVo2aUF'}},   // SKY pre-performance
+    {brand:'hyve',   format:'static', ratio:'9/16', media:{kind:'static', src:thumb('121KYwE4bLjSmQx4HujYRMOmVshmU-SHu')}}, // HYVE Brain's Bestie
+    {brand:'volvik', format:'ugc',    ratio:'9/16', media:{kind:'drive',  id:'1CVKEhrBvTWcmBdLeZzJbm6NcbkCxrH4_'}},   // volvik_TroyJ
+    {brand:'volvik', format:'motion', ratio:'9/16', media:{kind:'drive',  id:'1gHdTYEBJ4DIo6BzJAVNSTZ1wmuWvf2As'}},   // MOT BoxAndBalls (1x1 source)
+    {brand:'skye',   format:'static', ratio:'9/16', media:{kind:'static', src:thumb('1IjbN1A3LIw9-G9SPkmstpVZzx1nTk2LO')}}, // SKY comparison P3
+    {brand:'volvik', format:'ugc',    ratio:'9/16', media:{kind:'drive',  id:'1iNlR5gZBmNpCnx7zrcLtfVefI2XbinXn'}},   // volvik_TroyJ
+    {brand:'volvik', format:'ugc',    ratio:'9/16', media:{kind:'drive',  id:'10QUNNEzSnmKLrEoBYtfBmk9AMlOSDPf2'}},   // volvik_CoryB
   ];
-  // TESTIMONIALS — replace with your real client quotes (name + role/brand)
+  // TESTIMONIALS — real client reviews (name + role/brand)
   const TESTIMONIALS=[
-    {quote:"InVig turned our ad account into a creative machine. We went from a couple of new ads a month to dozens of fresh winners a week.", name:"DTC Founder", role:"Supplement brand", stars:5},
-    {quote:"Our best-performing ads are all theirs now. The volume and the quality together is something we could never hit in-house.", name:"Head of Growth", role:"Apparel brand", stars:5},
-    {quote:"We finally stopped worrying about creative. They brief, shoot, edit and test it all — we just watch it scale.", name:"Ecommerce Owner", role:"CPG brand", stars:5},
+    {quote:"Always great to work with! Solid person. Reliable and prompt. Professional and honest.", name:"Jana", role:"Aliner", stars:5},
   ];
 /* ============================  END EDITABLE DATA  ============================ */
 
@@ -463,7 +456,7 @@
 
   function mediaHTML(c){
     const m=c.media, b=BRANDS[c.brand];
-    if(m.kind==='static') return `<img src="${m.src}" alt="${b.name} static ad" loading="lazy">`;
+    if(m.kind==='static') return `<img class="poster-img" src="${m.src}" alt="${b.name} static ad" loading="lazy">`;
     if(m.kind==='mock'){
       return `<div class="static-ad" style="background:${b.grad}">
           <span class="sa-badge">${m.badge||''}</span>
@@ -471,10 +464,13 @@
           <div><div class="sa-head">${m.head||''}</div><div class="sa-sub">${m.sub||''}</div></div>
         </div>`;
     }
-    const poster = m.poster
-      ? `<img class="poster-img" src="${m.poster}" alt="${b.name} ad" loading="lazy">`
+    let poster=m.poster;
+    if(!poster && m.kind==='drive')   poster=`https://drive.google.com/thumbnail?id=${m.id}&sz=w1000`;
+    if(!poster && m.kind==='youtube') poster=`https://img.youtube.com/vi/${m.id}/hqdefault.jpg`;
+    const posterHTML = poster
+      ? `<img class="poster-img" src="${poster}" alt="${b.name} ad" loading="lazy">`
       : `<div class="poster-fill" style="background:${b.grad}"></div>`;
-    return `${poster}<div class="play"><span>▶</span></div>`;
+    return `${posterHTML}<div class="play"><span>▶</span></div>`;
   }
 
   function badgesHTML(mt){
