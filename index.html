@@ -14,12 +14,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="InVig Marketing — Performance Creative" />
 <meta property="og:description" content="Creator armies that print performance. See the work." />
-<meta property="og:url" content="https://portfoliocreatives.invigmarketing.com" />
-<meta property="og:image" content="https://portfoliocreatives.invigmarketing.com/invig-square.png" />
+<meta property="og:url" content="https://upwork.invigmarketing.com" />
+<meta property="og:image" content="https://upwork.invigmarketing.com/invig-square.png" />
 <meta property="og:site_name" content="InVig Marketing" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="InVig Marketing — Performance Creative" />
-<meta name="twitter:image" content="https://portfoliocreatives.invigmarketing.com/invig-square.png" />
+<meta name="twitter:image" content="https://upwork.invigmarketing.com/invig-square.png" />
 
 <link rel="icon" type="image/png" href="invig-logo-v2.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -201,6 +201,8 @@
   .final-cta .btn-primary:hover{background:#000;border-color:#000;}
   .final-cta .btn-ghost{color:var(--bg);border-color:rgba(11,14,17,.4);}
   .final-cta .btn-ghost:hover{border-color:var(--bg);}
+  .final-cta .cta-fine{color:rgba(11,14,17,.72);font-size:.92rem;font-weight:600;margin-top:18px;}
+  .upwork-cta[aria-disabled="true"]{cursor:default;}
 
   footer{padding:54px 0 40px;border-top:1px solid var(--border);color:var(--text-muted);}
   .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:.9rem;}
@@ -242,7 +244,7 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="InVig Marketing"><img src="invig-logo-v2.png" alt="InVig Marketing" /></a>
-    <a class="nav-cta" href="https://calendly.com/bryce-invigmarketing/30min" target="_blank" rel="noopener">Book a call →</a>
+    <a class="nav-cta upwork-cta">Book a call through Upwork →</a>
   </div>
 </nav>
 
@@ -262,8 +264,8 @@
     <div class="stats">
       <div class="stat reveal"><div class="num">300<span class="accent">+</span></div><div class="lbl">Creatives shipped / week</div></div>
       <div class="stat reveal"><div class="num">4.5<span class="accent">×</span></div><div class="lbl">Peak blended ROAS</div></div>
-      <div class="stat reveal"><div class="num"><span class="accent">$14M+</span></div><div class="lbl">Ad spend scaled</div></div>
-      <div class="stat reveal"><div class="num">60<span class="accent">+</span></div><div class="lbl">Creators on tap</div></div>
+      <div class="stat reveal"><div class="num"><span class="accent">$2M+</span></div><div class="lbl">Ad spend scaled</div></div>
+      <div class="stat reveal"><div class="num">400<span class="accent">+</span></div><div class="lbl">Creators ready to film</div></div>
     </div>
   </div>
 </section>
@@ -336,9 +338,9 @@
         <h2>Ready to build your creative engine?</h2>
         <p>Let's turn your ad account into a machine that never runs out of winning creative.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://calendly.com/bryce-invigmarketing/30min" target="_blank" rel="noopener">Book a call <span class="arrow">→</span></a>
-          <a class="btn btn-ghost" href="mailto:bryce@invigmarketing.com">bryce@invigmarketing.com</a>
+          <a class="btn btn-primary upwork-cta">Book a call through Upwork <span class="arrow">→</span></a>
         </div>
+        <p class="cta-fine">Hire or message InVig directly through Upwork to get started.</p>
       </div>
     </div>
   </div>
@@ -500,6 +502,15 @@
   addEventListener('scroll',onScroll);onScroll();
   const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Off-platform compliance — this page stays "locked": the Upwork CTAs are the
+  // ONLY call-to-action, and they point to Bryce's Upwork profile and nowhere else.
+  // No email, phone, booking widgets, or social links exist anywhere on this page.
+  const UPWORK_PROFILE=''; // TODO: paste Bryce's Upwork profile URL to make the CTA clickable
+  document.querySelectorAll('.upwork-cta').forEach(function(a){
+    if(UPWORK_PROFILE){a.href=UPWORK_PROFILE;a.target='_blank';a.rel='noopener';}
+    else{a.removeAttribute('href');a.setAttribute('aria-disabled','true');}
+  });
 
   render();
 </script>
