@@ -108,7 +108,7 @@
   .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;}
 
   /* ---------- stat bar ---------- */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;padding-top:44px;border-top:1px solid var(--border);}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;padding-top:44px;border-top:1px solid var(--border);}
   .stat .num{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1;}
   .stat .num .accent{color:var(--accent);}
   .stat .lbl{color:var(--text-muted);font-size:.92rem;margin-top:10px;}
@@ -188,6 +188,28 @@
   .av.more{background:var(--surface);color:var(--accent-bright);border-color:var(--border-strong);font-size:.85rem;}
   .army .army-note{margin-top:18px;color:var(--text-muted);font-size:.92rem;}
 
+  /* ---------- this is for you if ---------- */
+  .foryou-title{text-align:center;font-size:clamp(2.2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:54px;}
+  .foryou-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+  .foryou-card{text-align:center;}
+  .foryou-ic{width:120px;height:120px;margin:0 auto 26px;border-radius:50%;display:grid;place-items:center;font-size:3.2rem;
+    background:radial-gradient(circle at 50% 35%,rgba(29,174,255,.28),rgba(29,174,255,.04) 70%);border:1px solid var(--border);box-shadow:0 24px 50px -22px rgba(29,174,255,.45);}
+  .foryou-card h3{font-size:1.4rem;font-weight:700;letter-spacing:-.01em;line-height:1.15;margin:0 auto 14px;max-width:16ch;}
+  .foryou-card p{color:var(--text-muted);font-size:1rem;line-height:1.55;max-width:34ch;margin:0 auto;}
+
+  /* ---------- testimonials ---------- */
+  .t-head{text-align:center;margin-bottom:38px;}
+  .t-head h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;}
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tcard{background:var(--bg-alt);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;}
+  .tcard:hover{border-color:var(--border-strong);transform:translateY(-2px);}
+  .tcard .stars{color:var(--accent);letter-spacing:3px;font-size:1.05rem;}
+  .tcard blockquote{margin:0;font-size:1.05rem;line-height:1.55;color:var(--text);}
+  .tcard figcaption{display:flex;flex-direction:column;margin-top:auto;}
+  .tcard figcaption strong{font-weight:700;}
+  .tcard figcaption span{color:var(--text-muted);font-size:.9rem;}
+  @media(max-width:900px){.foryou-grid{grid-template-columns:1fr;gap:34px;}.tgrid{grid-template-columns:1fr;}}
+
   /* ---------- final CTA (accent band, on-brand) ---------- */
   .final-cta{background:var(--accent);color:var(--bg);text-align:center;padding:96px 40px;position:relative;overflow:hidden;border-radius:26px;}
   .final-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1100px;height:1100px;background:radial-gradient(circle,rgba(255,255,255,.14) 0%,transparent 60%);pointer-events:none;animation:pulse 6s ease-in-out infinite;}
@@ -263,7 +285,6 @@
     </div>
     <div class="stats">
       <div class="stat reveal"><div class="num">300<span class="accent">+</span></div><div class="lbl">Creatives shipped / week</div></div>
-      <div class="stat reveal"><div class="num">4.5<span class="accent">×</span></div><div class="lbl">Peak blended ROAS</div></div>
       <div class="stat reveal"><div class="num"><span class="accent">$2M+</span></div><div class="lbl">Ad spend scaled</div></div>
       <div class="stat reveal"><div class="num">400<span class="accent">+</span></div><div class="lbl">Creators ready to film</div></div>
     </div>
@@ -308,24 +329,38 @@
   </div>
 </section>
 
-<!-- CREATOR ENGINE -->
-<section class="section engine">
-  <div class="container engine-grid">
-    <div>
-      <div class="section-label">The model</div>
-      <h2>Not an agency.<br>A creative engine.</h2>
-      <p class="lede">Plug into a vetted network of creators across every niche, age, and aesthetic — fronted by a senior in-house strategy team. We script, source, shoot, edit, and iterate, shipping fresh performance creative every week, billed to the outcomes it drives. No retainers for hours nobody can measure. You pay for what works.</p>
-      <div class="vprops">
-        <div class="vprop"><div class="ic">∞</div><h4>Unlimited concepts</h4><p>Fresh angles weekly. Your account never goes creative-fatigued.</p></div>
-        <div class="vprop"><div class="ic">%</div><h4>Performance-priced</h4><p>Tied to results, not hours. We win when you scale.</p></div>
-        <div class="vprop"><div class="ic">▶</div><h4>Full-funnel formats</h4><p>UGC, statics, VSLs, retargeting, hooks — every placement covered.</p></div>
-        <div class="vprop"><div class="ic">⚡</div><h4>48-hour turnarounds</h4><p>Brief Monday, testing by Wednesday. Speed is the edge.</p></div>
+<!-- THIS IS FOR YOU IF -->
+<section class="section foryou">
+  <div class="container">
+    <h2 class="foryou-title">THIS IS FOR YOU IF:</h2>
+    <div class="foryou-grid">
+      <div class="foryou-card reveal">
+        <div class="foryou-ic">📱</div>
+        <h3>You don't have a scalable ad creative system.</h3>
+        <p>If you're experiencing ad fatigue and low ROAS because you don't have the volume, consistency or creative strategy to scale.</p>
+      </div>
+      <div class="foryou-card reveal">
+        <div class="foryou-ic">💰</div>
+        <h3>You are wasting money on creatives that don't work.</h3>
+        <p>If you're wasting thousands every month on fatigued, low performing or low-quality ad creatives that don't perform.</p>
+      </div>
+      <div class="foryou-card reveal">
+        <div class="foryou-ic">💻</div>
+        <h3>You are extremely busy and need to delegate.</h3>
+        <p>You don't have the time to find, hire, train and constantly manage an ad creative team and want to get results for your business fast.</p>
       </div>
     </div>
-    <div class="army">
-      <div class="avatars" id="avatars"></div>
-      <p class="army-note">A standing army of creators — scaled up or down on demand, matched to your brand and audience.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="t-head">
+      <div class="section-label">Real brands. Real results.</div>
+      <h2>What it's like to hand your creative to InVig.</h2>
     </div>
+    <div class="tgrid" id="tgrid"></div>
   </div>
 </section>
 
@@ -395,17 +430,23 @@
     {brand:'volvik', format:'ugc',   ratio:'9/16', media:{kind:'video',src:V1}, metrics:{roas:'3.8x',ctr:'2.4% CTR',hook:'31% hook',spend:'$42k scaled'}},
     {brand:'plus',   format:'ugc',   ratio:'9/16', media:{kind:'video',src:V2}, metrics:{roas:'4.52x',ctr:'3.1% CTR',hook:'38% hook',spend:'$25k spend'}},
     {brand:'hyve',   format:'static',ratio:'1/1',  media:{kind:'mock',head:'Raw. Unfiltered. Honey.',sub:'20% off your first jar',badge:'NEW DROP',emoji:'🍯'}, metrics:{roas:'5.2x',ctr:'2.9% CTR',spend:'$28k scaled'}},
-    {brand:'belter', format:'video', ratio:'16/9', media:{kind:'video',src:V3}, metrics:{roas:'3.1x',ctr:'1.9% CTR',spend:'$55k scaled'}},
+    {brand:'belter', format:'motion', ratio:'16/9', media:{kind:'video',src:V3}, metrics:{roas:'3.1x',ctr:'1.9% CTR',spend:'$55k scaled'}},
     {brand:'aliner', format:'ugc',   ratio:'9/16', media:{kind:'video',src:V4}, metrics:{roas:'4.1x',ctr:'2.7% CTR',hook:'34% hook',spend:'$37k scaled'}},
     {brand:'volvik', format:'static',ratio:'4/5',  media:{kind:'mock',head:'Longer. Straighter. Period.',sub:'The #1 distance ball',badge:'BESTSELLER',emoji:'⛳'}, metrics:{roas:'2.4x',ctr:'2.2% CTR',spend:'5× revenue'}},
     {brand:'highlights',format:'static',ratio:'1/1',media:{kind:'mock',head:'Your highlight reel, instantly.',sub:'Try it free',badge:'-15%',emoji:'🎞️'}, metrics:{roas:'3.9x',ctr:'2.6% CTR',spend:'$24k scaled'}},
     {brand:'hyve',   format:'ugc',   ratio:'9/16', media:{kind:'video',src:V2}, metrics:{roas:'4.8x',ctr:'3.4% CTR',hook:'41% hook',spend:'$47k scaled'}},
     {brand:'plus',   format:'static',ratio:'4/5',  media:{kind:'mock',head:'Trade with a real edge.',sub:'347 funded this month',badge:'VIRAL',emoji:'📈'}, metrics:{roas:'4.52x',ctr:'2.5% CTR',spend:'$72 CPA'}},
-    {brand:'belter', format:'ugc',   ratio:'9/16', media:{kind:'video',src:V1}, metrics:{roas:'3.6x',ctr:'2.8% CTR',hook:'29% hook',spend:'$40k scaled'}},
+    {brand:'belter', format:'motion', ratio:'9/16', media:{kind:'video',src:V1}, metrics:{roas:'3.6x',ctr:'2.8% CTR',hook:'29% hook',spend:'$40k scaled'}},
+  ];
+  // TESTIMONIALS — replace with your real client quotes (name + role/brand)
+  const TESTIMONIALS=[
+    {quote:"InVig turned our ad account into a creative machine. We went from a couple of new ads a month to dozens of fresh winners a week.", name:"DTC Founder", role:"Supplement brand", stars:5},
+    {quote:"Our best-performing ads are all theirs now. The volume and the quality together is something we could never hit in-house.", name:"Head of Growth", role:"Apparel brand", stars:5},
+    {quote:"We finally stopped worrying about creative. They brief, shoot, edit and test it all — we just watch it scale.", name:"Ecommerce Owner", role:"CPG brand", stars:5},
   ];
 /* ============================  END EDITABLE DATA  ============================ */
 
-  const FILTERS=[['all','All'],['ugc','UGC Video'],['video','Video'],['static','Static']];
+  const FILTERS=[['all','All'],['ugc','UGC Video'],['motion','Motion Graphic'],['static','Static']];
   const $=s=>document.querySelector(s);
   const wall=$('#wall');
   let active='all';
@@ -418,7 +459,7 @@
     render();
   });
 
-  function fmtLabel(f){return f==='ugc'?'UGC Video':f==='video'?'Video':'Static';}
+  function fmtLabel(f){return f==='ugc'?'UGC Video':f==='motion'?'Motion Graphic':'Static';}
 
   function mediaHTML(c){
     const m=c.media, b=BRANDS[c.brand];
@@ -457,7 +498,6 @@
         </div>
         <div class="meta">
           <div class="brandrow"><span class="sw" style="background:${b.sw}"></span><span class="bn">${b.name}</span></div>
-          <div class="badges">${badgesHTML(c.metrics)}</div>
         </div>
       </article>`;
     }).join('');
@@ -481,7 +521,7 @@
           <span class="sa-badge">${m.badge||''}</span><div class="sa-prod">${m.emoji||'🛍️'}</div>
           <div><div class="sa-head">${m.head||''}</div><div class="sa-sub">${m.sub||''}</div></div></div>`;
     }
-    lbCap.innerHTML=`<div class="brandrow"><span class="sw" style="width:11px;height:11px;border-radius:3px;display:inline-block;background:${b.sw}"></span> <strong>${b.name}</strong> · ${fmtLabel(c.format)}</div><div class="badges">${badgesHTML(c.metrics)}</div>`;
+    lbCap.innerHTML=`<div class="brandrow"><span class="sw" style="width:11px;height:11px;border-radius:3px;display:inline-block;background:${b.sw}"></span> <strong>${b.name}</strong> · ${fmtLabel(c.format)}</div>`;
     lb.classList.add('open');document.body.style.overflow='hidden';
   }
   function closeLB(){lb.classList.remove('open');lbMedia.innerHTML='';document.body.style.overflow='';}
@@ -490,12 +530,14 @@
   lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
 
-  // creator-army avatars
-  const initials=['AK','MJ','TR','LS','BN','CV','DP','RG','SM','JL'];
-  $('#avatars').innerHTML=initials.map((n,i)=>{
-    const g=Object.values(BRANDS)[i%6].grad;
-    return `<div class="av" style="background:${g}">${n}</div>`;
-  }).join('')+`<div class="av more">+50</div>`;
+  // testimonials
+  $('#tgrid').innerHTML=TESTIMONIALS.map(function(t){
+    return `<figure class="tcard">
+      <div class="stars">${'★'.repeat(t.stars||5)}</div>
+      <blockquote>“${t.quote}”</blockquote>
+      <figcaption><strong>${t.name}</strong><span>${t.role}</span></figcaption>
+    </figure>`;
+  }).join('');
 
   $('#yr').textContent=2026;
   const onScroll=()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20);
@@ -506,7 +548,7 @@
   // Off-platform compliance — this page stays "locked": the Upwork CTAs are the
   // ONLY call-to-action, and they point to Bryce's Upwork profile and nowhere else.
   // No email, phone, booking widgets, or social links exist anywhere on this page.
-  const UPWORK_PROFILE=''; // TODO: paste Bryce's Upwork profile URL to make the CTA clickable
+  const UPWORK_PROFILE='https://www.upwork.com/freelancers/~018ded239e9177803c';
   document.querySelectorAll('.upwork-cta').forEach(function(a){
     if(UPWORK_PROFILE){a.href=UPWORK_PROFILE;a.target='_blank';a.rel='noopener';}
     else{a.removeAttribute('href');a.setAttribute('aria-disabled','true');}
